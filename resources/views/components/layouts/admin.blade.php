@@ -7,6 +7,7 @@
 
     <title>{{ $title ?? 'Page Title' }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="./node_modules/preline/dist/preline.js"></script>
     @livewireStyles
 </head>
 
@@ -17,9 +18,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <x-livewire-alert::scripts />
 
-    {{-- nav --}}
-    <livewire:component.nav />
-    <main class="container mx-auto px-4">
+    <main class="container ">
         {{ $slot }}
     </main>
 </body>

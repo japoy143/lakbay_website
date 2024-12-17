@@ -23,7 +23,7 @@
     </div>
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
-            <li><a href="/"
+            <li><a wire:navigate href="/"
                     class=" {{ request()->is('/') ? 'text-primary' : 'text-gray-500' }} font-medium  hover:text-gray-300">Home</a>
             </li>
             {{-- <li>
@@ -35,10 +35,10 @@
                     </ul>
                 </details>
             </li> --}}
-            <li><a href="{{ route('packages') }}"
+            <li><a wire:navigate href="{{ route('packages') }}"
                     class=" {{ request()->is('packages') ? 'text-primary' : 'text-gray-500' }} font-medium   hover:text-gray-300">Packages</a>
             </li>
-            <li><a href="{{ route('about') }}"
+            <li><a wire:navigate href="{{ route('about') }}"
                     class=" {{ request()->is('about') ? 'text-primary' : 'text-gray-500' }} font-medium  hover:text-gray-300">About</a>
             </li>
 
@@ -47,6 +47,29 @@
         </ul>
     </div>
     <div class="navbar-end">
-        <a class="btn bg-primary text-white">Login</a>
+
+        @guest
+            <a wire:navigate href="{{ route('login') }}" class="btn bg-primary text-white">Login</a>
+        @endguest
+        @auth
+            <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                        <img alt="Tailwind CSS Navbar component"
+                            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                    </div>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                    <li>
+                        <a class="justify-between">
+                            Profile
+                            <span class="badge">New</span>
+                        </a>
+                    </li>
+                    <li><a>Settings</a></li>
+                    <li><a wire:click.prevent="logout">Logout</a></li>
+                </ul>
+            </div>
+        @endauth
     </div>
 </div>

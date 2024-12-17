@@ -8,6 +8,7 @@ export default {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "node_modules/preline/dist/*.js",
     ],
 
     darkMode: "class",
@@ -35,5 +36,5 @@ export default {
     daisyui: {
         themes: ["light", "dark", "cupcake"],
     },
-    plugins: [require("daisyui")],
+    plugins: [require("daisyui"), require("preline/plugin")],
 };
