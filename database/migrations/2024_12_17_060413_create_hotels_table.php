@@ -16,7 +16,6 @@ return new class extends Migration {
             $table->string('location');
             $table->integer('pricing');
             $table->boolean('is_liked')->default(false);
-            $table->string('date');
             $table->string('hotel_img');
             $table->timestamps();
         });

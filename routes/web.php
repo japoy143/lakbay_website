@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\AboutPage;
+use App\Livewire\Admin\AdminAddHotelPage;
 use App\Livewire\Admin\AdminBookingsPage;
 use App\Livewire\Admin\AdminCustomersPage;
 use App\Livewire\Admin\AdminDashboardPage;
@@ -31,3 +32,6 @@ Route::get('/admin', AdminDashboardPage::class)->name('admin.dashboard');
 Route::get('/hotels', AdminHotelsPage::class)->name('admin.hotels');
 Route::get('/bookings', AdminBookingsPage::class)->name('admin.bookings');
 Route::get('/customers', AdminCustomersPage::class)->name('admin.customers');
+
+//store
+Route::get('/addhotel', AdminAddHotelPage::class)->name('addhotel');
