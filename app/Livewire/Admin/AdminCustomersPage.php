@@ -4,11 +4,11 @@ namespace App\Livewire\Admin;
 
 use Livewire\Component;
 
-class AdminDashboardPage extends Component
+class AdminCustomersPage extends Component
 {
     public function render()
     {
-        return view('livewire.admin.admin-dashboard-page')
+        return view('livewire.admin.admin-customers-page')
             ->layout('components/layouts/admin');
     }
 }

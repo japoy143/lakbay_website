@@ -1,8 +1,14 @@
 <?php
 
 use App\Livewire\AboutPage;
+use App\Livewire\Admin\AdminBookingsPage;
+use App\Livewire\Admin\AdminCustomersPage;
 use App\Livewire\Admin\AdminDashboardPage;
+use App\Livewire\Admin\AdminHotelsPage;
+use App\Livewire\Admin\BookingsPage;
+use App\Livewire\Admin\CustomersPage;
 use App\Livewire\Admin\Dashboardpage;
+use App\Livewire\Admin\HotelsPage;
 use App\Livewire\ContactPage;
 use App\Livewire\Homepage;
 use App\Livewire\LoginPage;
@@ -21,4 +27,7 @@ Route::get('/register', RegisterPage::class)->name('register');
 
 
 //admin
-Route::get('/admin', AdminDashboardPage::class)->name('admin');
+Route::get('/admin', AdminDashboardPage::class)->name('admin.dashboard');
+Route::get('/hotels', AdminHotelsPage::class)->name('admin.hotels');
+Route::get('/bookings', AdminBookingsPage::class)->name('admin.bookings');
+Route::get('/customers', AdminCustomersPage::class)->name('admin.customers');
