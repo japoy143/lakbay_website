@@ -27,9 +27,9 @@
                 @enderror
             </div>
             {{-- Hotel Pricing --}}
-            <div class="w-1/2 lg:w-1/4">
+            <div class="w-1/2 lg:w-1/4 ">
                 <label for="" class="text-sm font-medium  ">Hotel Pricing</label>
-                <input type="number" wire:model='pricing' id="" class="mt-2">
+                <input type="number" wire:model='pricing' id="" class="mt-2 block">
                 @error('hotel_pricing')
                     <p class=" text-red-500 text-sm">{{ $message }}</p>
                 @enderror
