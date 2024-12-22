@@ -11,6 +11,20 @@ class BookHotelPage extends Component
 
     public Hotels $hotel;
 
+    public $customer_name;
+
+
+    public $location;
+
+    public $phone_number;
+
+
+    public $cod;
+
+
+    public $gcash;
+
+
 
     public function mount(Hotels $hotel)
     {

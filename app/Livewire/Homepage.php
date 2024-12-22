@@ -13,6 +13,7 @@ class Homepage extends Component
 
     public $sort;
 
+
     public function render()
     {
         $hotels = Hotels::query();
