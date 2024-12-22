@@ -3,33 +3,42 @@
 namespace App\Livewire\Admin;
 
 use App\Models\Hotels;
-use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Collection;
+use Livewire\Attributes\On;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 
 class AdminHotelsPage extends Component
 {
 
-    public Collection $hotels;
+
 
     public $sort;
 
-    public function mount()
-    {
-        $this->hotels = Hotels::latest()->get();
-    }
+    #[Url]
+    public $search = '';
 
-
-
+    //re render
+    #[On('update-hotels')]
     public function render()
     {
+        $hotels = Hotels::query();
 
-        if ($this->sort == 'oldest') {
-            $this->hotels = Hotels::oldest()->get();
-        } else {
-            $this->hotels = Hotels::latest()->get();
+        if ($this->search != '') {
+            $hotels->where('hotel_name', 'LIKE', "%" . $this->search . "%");
         }
 
-        return view('livewire.admin.admin-hotels-page', ['hotels' => $this->hotels])
+        if ($this->sort == 'oldest') {
+            $hotels->oldest();
+        } else {
+            $hotels->latest();
+        }
+
+
+        $hotels = $hotels->get();
+
+
+        return view('livewire.admin.admin-hotels-page', ['hotels' => $hotels])
             ->layout('components/layouts/admin');
     }
 }
