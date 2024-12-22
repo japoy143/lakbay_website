@@ -20,7 +20,7 @@
 
     {{-- nav --}}
     <livewire:component.nav />
-    <main class="container mx-auto px-4">
+    <main class="container mx-auto px-4 h-screen w-screen">
         {{ $slot }}
     </main>
 </body>

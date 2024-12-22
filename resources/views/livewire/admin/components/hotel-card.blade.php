@@ -11,7 +11,7 @@
                 <a href="{{ route('edithotel', $hotel->id) }}" class="btn">Edit</a>
                 <button class="btn" wire:click="delete({{ $hotel->id }})">Delete</button>
             @else
-                <a href="{{ route('edithotel', $hotel->id) }}" class="btn bg-primary text-white">Book</a>
+                <a href="{{ route('bookhotel', $hotel->id) }}" wire:navigate class="btn bg-primary text-white">Book</a>
             @endif
         </div>
     </div>

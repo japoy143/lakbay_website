@@ -28,6 +28,8 @@ class HotelCard extends Component
     }
 
 
+
+
     public function render()
     {
         return view('livewire.admin.components.hotel-card');

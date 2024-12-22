@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
         Hotels::factory()
             ->count(20)
             ->state(new Sequence(
-                ['hotel_img' => 'Hotels/iphone1.jpg'],
-                ['hotel_img' => 'Hotels/realme1.jpg'],
+                ['hotel_img' => 'Hotels/sample.jpeg'],
+                ['hotel_img' => 'Hotels/smp.jpeg'],
             ))
             ->create();
     }
