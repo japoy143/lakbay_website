@@ -18,11 +18,15 @@ class BookHotelPage extends Component
 
     public $phone_number;
 
+    public $payment_method;
 
-    public $cod;
 
 
-    public $gcash;
+    public function placebooking()
+    {
+
+        dd($this->customer_name, $this->location, $this->phone_number, $this->payment_method);
+    }
 
 
 

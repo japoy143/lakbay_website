@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-
+use App\Models\Customer;
 use App\Models\User;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -33,8 +33,14 @@ class RegisterPage extends Component
 
 
         //create user account
-        User::create($userDetails);
+        $user = User::create($userDetails);
+
+        //create customer
+        Customer::create(['name' => $this->name, 'user_id' => $user->id]);
+
         $this->alert('success', 'Successfully Created Account');
+
+
 
 
     }
