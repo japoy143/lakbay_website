@@ -2,12 +2,14 @@
 
 namespace App\Livewire\Customers;
 
+use App\Models\Booking;
 use App\Models\Hotels;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
 class BookHotelPage extends Component
 {
-
+    use LivewireAlert;
 
     public Hotels $hotel;
 
@@ -25,13 +27,39 @@ class BookHotelPage extends Component
 
     public $total_payment;
 
+    public $checkin_date;
+
+    public $checkout_date;
 
 
 
     public function placebooking()
     {
 
-        dd($this->customer_name, $this->location, $this->phone_number, $this->payment_method);
+
+
+        //validate
+        $attributes = $this->validate([
+            'customer_name' => 'required',
+            'location' => 'required',
+            'phone_number' => 'required|min_digits:11|max_digits:11',
+            'payment_method' => 'required',
+            'guests' => 'required',
+            'total_payment' => 'required',
+            'checkin_date' => 'required',
+            'checkout_date' => 'required'
+        ]);
+
+        $attributes['hotels_id'] = $this->hotel->id;
+
+        //book customer
+        Booking::create($attributes);
+
+        $this->alert('success', 'Successfully Book Hotel');
+
+        //redirect
+        return redirect('/');
+
     }
 
 
@@ -41,7 +69,6 @@ class BookHotelPage extends Component
 
         $this->hotel = $hotel;
         $this->total_payment = $this->guests * $this->hotel->pricing;
-
 
     }
     public function render()

@@ -68,6 +68,34 @@
                 </div>
             </div>
 
+            {{-- Checkin and Checkout Date --}}
+            <div class=" flex flex-row justify-between">
+                {{-- Check in Date --}}
+                <div>
+                    <label for="input-label" class="block text-sm font-medium mb-2 dark:text-white">Check in
+                        Date</label>
+                    <input type="date" wire:model.live="checkin_date" id="input-label"
+                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                        placeholder="Enter Number of Guests">
+
+                    @error('checkin_date')
+                        <p class=" text-red-500 text-sm">{{ $message }}</p>
+                    @enderror
+                </div>
+                {{-- Check out Date --}}
+                <div>
+                    <label for="input-label" class="block text-sm font-medium mb-2 dark:text-white">Check out
+                        Date</label>
+                    <input type="date" wire:model.live="checkout_date" id="input-label"
+                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                        placeholder="Enter Number of Guests">
+
+                    @error('checkout_date')
+                        <p class=" text-red-500 text-sm">{{ $message }}</p>
+                    @enderror
+                </div>
+            </div>
+
             {{-- Payment Method --}}
             <div>
                 <label for="input-label" class="block text-sm font-medium mb-2 dark:text-white">Payment Method</label>
@@ -76,8 +104,8 @@
                         class="flex p-3 w-full bg-white border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
                         <input type="radio" wire:model='payment_method'
                             class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-                            id="hs-radio-in-form" value="cod">
-                        <span class="text-sm text-gray-500 ms-3 dark:text-neutral-400">COD</span>
+                            id="hs-radio-in-form" value="downpayment">
+                        <span class="text-sm text-gray-500 ms-3 dark:text-neutral-400">Down Payment</span>
                     </label>
 
                     <label for="hs-radio-checked-in-form"
@@ -88,6 +116,10 @@
                         <span class="text-sm text-gray-500 ms-3 dark:text-neutral-400">G Cash</span>
                     </label>
                 </div>
+
+                @error('payment_method')
+                    <p class=" text-red-500 text-sm">{{ $message }}</p>
+                @enderror
             </div>
 
 
