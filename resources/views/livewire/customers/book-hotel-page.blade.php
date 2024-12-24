@@ -43,15 +43,29 @@
             </div>
 
 
-            {{-- Phone Number --}}
-            <div class="max-w-sm">
-                <label for="input-label" class="block text-sm font-medium mb-2 dark:text-white">Phone Number</label>
-                <input type="number" wire:model="phone_number" id="input-label"
-                    class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                    placeholder="Enter Phone Number">
-                @error('phone_number')
-                    <p class=" text-red-500 text-sm">{{ $message }}</p>
-                @enderror
+            <div class=" flex  justify-between">
+                {{-- Phone Number --}}
+                <div class="max-w-sm">
+                    <label for="input-label" class="block text-sm font-medium mb-2 dark:text-white">Phone Number</label>
+                    <input type="number" wire:model="phone_number" id="input-label"
+                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                        placeholder="Enter Phone Number">
+                    @error('phone_number')
+                        <p class=" text-red-500 text-sm">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                {{-- Total Guest --}}
+                <div class="max-w-sm">
+                    <label for="input-label" class="block text-sm font-medium mb-2 dark:text-white">Total Number Of
+                        Guests</label>
+                    <input type="number" wire:model.live="guests" id="input-label"
+                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                        placeholder="Enter Number of Guests">
+                    @error('guests')
+                        <p class=" text-red-500 text-sm">{{ $message }}</p>
+                    @enderror
+                </div>
             </div>
 
             {{-- Payment Method --}}
@@ -74,6 +88,12 @@
                         <span class="text-sm text-gray-500 ms-3 dark:text-neutral-400">G Cash</span>
                     </label>
                 </div>
+            </div>
+
+
+            {{-- Total Payment --}}
+            <div class=" border border-solid  h-[44px] rounded flex items-center px-4 ">
+                <p>Total Payment: <span>{{ Number::currency($total_payment, 'PHP') }}</span></p>
             </div>
 
 

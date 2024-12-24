@@ -21,6 +21,12 @@ class BookHotelPage extends Component
     public $payment_method;
 
 
+    public $guests = 1;
+
+    public $total_payment;
+
+
+
 
     public function placebooking()
     {
@@ -32,12 +38,19 @@ class BookHotelPage extends Component
 
     public function mount(Hotels $hotel)
     {
+
         $this->hotel = $hotel;
+        $this->total_payment = $this->guests * $this->hotel->pricing;
 
 
     }
     public function render()
     {
+
+        if ($this->guests > 1) {
+            $this->total_payment = $this->guests * $this->hotel->pricing;
+        }
+
         return view('livewire.customers.book-hotel-page');
     }
 }
