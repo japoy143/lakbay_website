@@ -15,7 +15,8 @@ class AdminCustomersPage extends Component
         $customers = Customer::query();
 
         if ($this->search !== '') {
-            $customers = $customers->where('name', 'like', '%' . $this->search . '%');
+            $customers = $customers->where('name', 'like', '%' . $this->search . '%')
+                ->orWhere('email', 'like', '%' . $this->search . '%');
         }
 
         $customers = $customers->get();

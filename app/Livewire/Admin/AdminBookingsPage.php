@@ -19,6 +19,12 @@ class AdminBookingsPage extends Component
     }
 
 
+    //edit booking
+    public function editBooking(Booking $booking){
+        
+    }
+
+
     public function render()
     {
 

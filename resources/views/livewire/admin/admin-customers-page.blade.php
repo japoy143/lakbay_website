@@ -49,6 +49,12 @@
                                     Customer Name</th>
                                 <th scope="col"
                                     class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">
+                                    Email</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">
+                                    Phone Number</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">
                                     Actions</th>
 
 
@@ -63,22 +69,31 @@
                                     <td
                                         class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
                                         {{ $customer->name }}</td>
+                                    <td
+                                        class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
+                                        {{ $customer->email }}</td>
 
-
+                                    <td
+                                        class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
+                                        {{ $customer->phone_number }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
 
                                         <img src="{{ Vite::asset('resources/svgs/ellipses.svg') }}"
                                             class="h-[24px] w-[24px] cursor-pointer" onclick="showOptions(event)" />
 
                                         <div id="options-{{ $key }}"
-                                            class="hidden absolute z-10 mt-2 bg-white border border-gray-200 rounded-md shadow-md  right-10">
+                                            class="hidden absolute z-10 mt-2 bg-white border border-gray-200 rounded-md shadow-md  right-36 ">
                                             <!-- Options content here -->
                                             {{-- <a href="{{ route('edit-booking', $booking->id) }}" wire:navigate
                                                 class="block px-4 py-2 text-sm  text-orange-400">Edit</a>
                                             <button wire:click="deleteBooking({{ $booking->id }})"
                                                 class="block px-4 py-2 text-sm text-red-500 ">Delete
                                             </button> --}}
-                                            <button>Delete</button>
+
+                                            <button class="block px-4 py-2 text-sm text-orange-400 ">Edit
+                                            </button>
+                                            <button class="block px-4 py-2 text-sm text-red-500 ">Delete
+                                            </button>
                                         </div>
                                     </td>
 

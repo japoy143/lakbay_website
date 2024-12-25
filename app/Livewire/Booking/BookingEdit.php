@@ -39,7 +39,7 @@ class BookingEdit extends Component
         $this->guests = $booking->guests;
         $this->total_payment = $booking->total_payment;
         $this->checkin_date = $booking->checkin_date;
-        $this->checkout_date = $booking->checkout_date;
+        $this->checkout_date = $booking->checkout_date; 
     }
 
 

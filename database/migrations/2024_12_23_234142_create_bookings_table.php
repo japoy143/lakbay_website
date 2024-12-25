@@ -23,7 +23,7 @@ return new class extends Migration {
             $table->string('location');
             $table->integer('phone_number');
             $table->string('payment_method');
-            $table->integer('guests')->default(1);
+            $table->integer('days')->default(1);
             $table->integer('total_payment');
 
         });

@@ -17,11 +17,11 @@
 
                 {{-- Name --}}
                 <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700">
+                    <label for="name" class="block text-sm font-medium text-gray-700">
                         Name
                     </label>
                     <div class="mt-1">
-                        <input id="email" wire:model="name" type="text" autocomplete="email" required
+                        <input id="name" wire:model="name" type="text" autocomplete="email" required
                             class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#FF8383] focus:border-[#FF8383] focus:z-10 sm:text-sm"
                             placeholder="Enter your Name">
                     </div>
@@ -45,6 +45,21 @@
                     @enderror
                 </div>
 
+                {{-- Phone Number --}}
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700">
+                        Phone Number
+                    </label>
+                    <div class="mt-1">
+                        <input id="phone" wire:model="phone_number" type="number" autocomplete="email" required
+                            class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#FF8383] focus:border-[#FF8383] focus:z-10 sm:text-sm"
+                            placeholder="Enter phone number">
+                    </div>
+                    @error('phone_number')
+                        <p class=" text-red-400 text-sm">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 {{-- Password --}}
                 <div>
                     <label for="password" class="block text-sm font-medium text-gray-700">
@@ -63,11 +78,11 @@
 
                 {{-- Confirm Password --}}
                 <div>
-                    <label for="password" class="block text-sm font-medium text-gray-700">
+                    <label for="confirm_password" class="block text-sm font-medium text-gray-700">
                         Confirm Password
                     </label>
                     <div class="mt-1">
-                        <input id="password" wire:model="password_confirmation" type="password"
+                        <input id="confirm_password" wire:model="password_confirmation" type="password"
                             autocomplete="current-password" required
                             class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#FF8383] focus:border-[#FF8383]  focus:z-10 sm:text-sm"
                             placeholder="Confirm your password">

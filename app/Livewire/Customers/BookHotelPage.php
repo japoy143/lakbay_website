@@ -24,7 +24,7 @@ class BookHotelPage extends Component
     public $payment_method;
 
 
-    public $guests = 1;
+    public $days = 1;
 
     public $total_payment;
 
@@ -45,7 +45,7 @@ class BookHotelPage extends Component
             'location' => 'required',
             'phone_number' => 'required|min_digits:11|max_digits:11',
             'payment_method' => 'required',
-            'guests' => 'required',
+            'days' => 'required',
             'total_payment' => 'required',
             'checkin_date' => 'required',
             'checkout_date' => 'required'
@@ -70,14 +70,14 @@ class BookHotelPage extends Component
     {
 
         $this->hotel = $hotel;
-        $this->total_payment = $this->guests * $this->hotel->pricing;
+        $this->total_payment = $this->days * $this->hotel->pricing;
 
     }
     public function render()
     {
 
-        if ($this->guests > 1) {
-            $this->total_payment = $this->guests * $this->hotel->pricing;
+        if ($this->days > 1) {
+            $this->total_payment = $this->days * $this->hotel->pricing;
         }
 
         return view('livewire.customers.book-hotel-page');

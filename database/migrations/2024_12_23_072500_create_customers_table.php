@@ -16,6 +16,8 @@ return new class extends Migration {
             $table->timestamps();
             $table->foreignIdFor(User::class);
             $table->string('name');
+            $table->string('email');
+            $table->integer('phone_number');
         });
     }
 

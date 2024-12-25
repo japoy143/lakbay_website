@@ -18,6 +18,8 @@ class RegisterPage extends Component
 
     public $password_confirmation;
 
+    public $phone_number;
+
 
 
 
@@ -27,7 +29,9 @@ class RegisterPage extends Component
         $userDetails = $this->validate([
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
+            'phone_number' => 'required|min_digits:11|max_digits:11',
             'password' => 'required|confirmed|max:255'
+
         ]);
 
 
@@ -36,7 +40,7 @@ class RegisterPage extends Component
         $user = User::create($userDetails);
 
         //create customer
-        Customer::create(['name' => $this->name, 'user_id' => $user->id]);
+        Customer::create(['name' => $user->name, 'user_id' => $user->id, 'email' => $user->email, 'phone_number' => $user->phone_number]);
 
         $this->alert('success', 'Successfully Created Account');
 
