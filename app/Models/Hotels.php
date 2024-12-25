@@ -9,4 +9,9 @@ class Hotels extends Model
 {
     /** @use HasFactory<\Database\Factories\HotelsFactory> */
     use HasFactory;
+
+    public function booking()
+    {
+        return $this->hasOne(Booking::class);
+    }
 }

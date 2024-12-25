@@ -15,4 +15,15 @@ class Booking extends Model
         'checkout_date' => 'date',
 
     ];
+
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
+
+    public function hotels()
+    {
+        return $this->belongsTo(Hotels::class);
+    }
 }

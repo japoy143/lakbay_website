@@ -11,6 +11,7 @@ use App\Livewire\Admin\CustomersPage;
 use App\Livewire\Admin\Dashboardpage;
 use App\Livewire\Admin\Hotel\EditHotelpage;
 use App\Livewire\Admin\HotelsPage;
+use App\Livewire\Booking\BookingEdit;
 use App\Livewire\ContactPage;
 use App\Livewire\Customers\BookHotelPage;
 use App\Livewire\Homepage;
@@ -43,3 +44,5 @@ Route::get('/admin/edit/{hotel}', EditHotelpage::class)->name('edithotel');
 
 //customers
 Route::get('/customer/bookhotel/{hotel}', BookHotelPage::class)->name('bookhotel');
+//edit booking
+Route::get('/admin/booking/{booking}', BookingEdit::class)->name('edit-booking');

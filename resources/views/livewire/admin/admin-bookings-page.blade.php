@@ -1,9 +1,9 @@
-<div class=" flex flex-col h-screen">
+<div class=" flex flex-col h-screen z-0">
     <x-header.admin-header is_add="true" btn_name="Add Bookings">
         Booking
     </x-header.admin-header>
     {{-- Search Box --}}
-    <div class=" flex flex-row w-full justify-end">
+    <div class=" flex flex-row w-full justify-end relative">
         <div class="max-w-sm ">
             <!-- SearchBox -->
             <div class="relative"s>
@@ -67,6 +67,9 @@
                                 <th scope="col"
                                     class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">
                                     Total Payment</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">
+                                    Action</th>
 
                             </tr>
                         </thead>
@@ -74,7 +77,7 @@
 
                             @foreach ($bookings as $key => $booking)
                                 <tr wire:key="{{ $key }}"
-                                    class=" {{ $key % 2 == 0 ? 'odd:bg-white' : 'even:bg-gray-100' }}   hover:bg-gray-100 dark:odd:bg-neutral-800 dark:even:bg-neutral-700 dark:hover:bg-neutral-700">
+                                    class=" {{ $key % 2 == 0 ? 'odd:bg-white' : 'even:bg-gray-100' }}   hover:bg-gray-100 dark:odd:bg-neutral-800 dark:even:bg-neutral-700 dark:hover:bg-neutral-700 ">
                                     <td
                                         class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
                                         {{ $booking->customer_name }}</td>
@@ -93,9 +96,27 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
                                         {{ $booking->total_payment }}</td>
 
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+
+                                        <img src="{{ Vite::asset('resources/svgs/ellipses.svg') }}"
+                                            class="h-[24px] w-[24px] cursor-pointer" onclick="showOptions(event)" />
+
+                                        <div id="options-{{ $key }}"
+                                            class="hidden absolute z-10 mt-2 bg-white border border-gray-200 rounded-md shadow-md  right-10">
+                                            <!-- Options content here -->
+                                            <a href="{{ route('edit-booking', $booking->id) }}" wire:navigate
+                                                class="block px-4 py-2 text-sm  text-orange-400">Edit</a>
+                                            <button wire:click="deleteBooking({{ $booking->id }})"
+                                                class="block px-4 py-2 text-sm text-red-500 ">Delete
+                                            </button>
+                                        </div>
+                                    </td>
+
+
                                 </tr>
                             @endforeach
                         </tbody>
+
                     </table>
                 </div>
             </div>
@@ -103,3 +124,12 @@
     </div>
     {{-- Table End --}}
 </div>
+
+
+{{-- Show options button --}}
+<script>
+    function showOptions(event) {
+        const optionsDiv = event.target.nextElementSibling;
+        optionsDiv.classList.toggle('hidden');
+    }
+</script>

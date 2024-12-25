@@ -10,6 +10,15 @@ class AdminBookingsPage extends Component
 
     public $search = '';
 
+
+
+    //delete booking
+    public function deleteBooking(Booking $booking)
+    {
+        $booking->delete();
+    }
+
+
     public function render()
     {
 
