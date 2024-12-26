@@ -83,15 +83,9 @@
 
                                         <div id="options-{{ $key }}"
                                             class="hidden absolute z-10 mt-2 bg-white border border-gray-200 rounded-md shadow-md  right-36 ">
-                                            <!-- Options content here -->
-                                            {{-- <a href="{{ route('edit-booking', $booking->id) }}" wire:navigate
-                                                class="block px-4 py-2 text-sm  text-orange-400">Edit</a>
-                                            <button wire:click="deleteBooking({{ $booking->id }})"
-                                                class="block px-4 py-2 text-sm text-red-500 ">Delete
-                                            </button> --}}
-
-                                            <button class="block px-4 py-2 text-sm text-orange-400 ">Edit
-                                            </button>
+                                            <a href="{{ route('edit-customer', $customer->id) }}" wire:navigate
+                                                class="block px-4 py-2 text-sm text-orange-400 ">Edit
+                                            </a>
                                             <button class="block px-4 py-2 text-sm text-red-500 ">Delete
                                             </button>
                                         </div>

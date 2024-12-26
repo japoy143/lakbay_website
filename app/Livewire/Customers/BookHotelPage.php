@@ -59,8 +59,6 @@ class BookHotelPage extends Component
 
         $this->alert('success', 'Successfully Book Hotel');
 
-        //redirect
-        return redirect('/');
 
     }
 
