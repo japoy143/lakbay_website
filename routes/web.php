@@ -6,6 +6,10 @@ use App\Livewire\Admin\AdminBookingsPage;
 use App\Livewire\Admin\AdminCustomersPage;
 use App\Livewire\Admin\AdminDashboardPage;
 use App\Livewire\Admin\AdminHotelsPage;
+use App\Livewire\Admin\Auth\AdminLogin;
+use App\Livewire\Admin\Auth\AdminRegister;
+use App\Livewire\Admin\Auth\Login;
+use App\Livewire\Admin\Auth\Register;
 use App\Livewire\Admin\BookingsPage;
 use App\Livewire\Admin\CustomersPage;
 use App\Livewire\Admin\Dashboardpage;
@@ -31,6 +35,9 @@ Route::get('/login', LoginPage::class)->name('login');
 Route::get('/register', RegisterPage::class)->name('register');
 
 
+//admin auth
+Route::get('/admin/register', AdminRegister::class)->name('admin.register');
+Route::get('/admin/login', AdminLogin::class)->name('admin.login');
 //admin
 Route::get('/admin', AdminDashboardPage::class)->name('admin.dashboard');
 Route::get('/hotels', AdminHotelsPage::class)->name('admin.hotels');
@@ -41,6 +48,9 @@ Route::get('/customers', AdminCustomersPage::class)->name('admin.customers');
 Route::get('/addhotel', AdminAddHotelPage::class)->name('addhotel');
 //edit
 Route::get('/admin/edit/{hotel}', EditHotelpage::class)->name('edithotel');
+
+
+
 
 
 //customers

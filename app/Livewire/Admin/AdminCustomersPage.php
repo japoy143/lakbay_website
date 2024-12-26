@@ -10,6 +10,10 @@ class AdminCustomersPage extends Component
     public $search = '';
 
 
+    public function delete(Customer $customer)
+    {
+        $customer->delete();
+    }
     public function render()
     {
         $customers = Customer::query();

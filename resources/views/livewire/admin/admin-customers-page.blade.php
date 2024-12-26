@@ -86,7 +86,8 @@
                                             <a href="{{ route('edit-customer', $customer->id) }}" wire:navigate
                                                 class="block px-4 py-2 text-sm text-orange-400 ">Edit
                                             </a>
-                                            <button class="block px-4 py-2 text-sm text-red-500 ">Delete
+                                            <button class="block px-4 py-2 text-sm text-red-500 "
+                                                wire:click="delete({{ $customer->id }})">Delete
                                             </button>
                                         </div>
                                     </td>

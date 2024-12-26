@@ -44,6 +44,8 @@ class EditCustomer extends Component
         return redirect(route('admin.customers'));
     }
 
+
+
     public function render()
     {
         return view('livewire.customers.edit-customer')

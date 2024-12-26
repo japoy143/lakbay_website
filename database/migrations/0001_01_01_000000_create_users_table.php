@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->integer('phone_number');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('is_hotel_owner')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
