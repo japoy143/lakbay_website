@@ -18,7 +18,7 @@ class AdminHotelsPage extends Component
     #[Url]
     public $search = '';
 
-    //re render
+    //re render 
     #[On('update-hotels')]
     public function render()
     {

@@ -5,7 +5,7 @@
         </h2>
         <p class="mt-2 text-center text-sm text-gray-600 max-w">
             Or
-            <a href="{{ route('login') }}" class="font-medium  text-primary hover:text-primary/80">
+            <a href="{{ route('admin.login') }}" class="font-medium  text-primary hover:text-primary/80">
                 login to your account
             </a>
         </p>

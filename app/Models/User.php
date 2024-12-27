@@ -53,4 +53,11 @@ class User extends Authenticatable
         return $this->hasOne(Customer::class);
     }
 
+
+    //hotel owner
+    public function hotel_owner()
+    {
+        return $this->hasOne(HotelOwner::class);
+    }
+
 }

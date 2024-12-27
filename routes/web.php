@@ -39,11 +39,13 @@ Route::get('/register', RegisterPage::class)->name('register');
 Route::get('/admin/register', AdminRegister::class)->name('admin.register');
 Route::get('/admin/login', AdminLogin::class)->name('admin.login');
 //admin
-Route::get('/admin', AdminDashboardPage::class)->name('admin.dashboard');
-Route::get('/hotels', AdminHotelsPage::class)->name('admin.hotels');
-Route::get('/bookings', AdminBookingsPage::class)->name('admin.bookings');
-Route::get('/customers', AdminCustomersPage::class)->name('admin.customers');
+Route::middleware(['is_hotel_owner'])->group(function () {
+    Route::get('/admin', AdminDashboardPage::class)->name('admin.dashboard');
+    Route::get('/hotels', AdminHotelsPage::class)->name('admin.hotels');
+    Route::get('/bookings', AdminBookingsPage::class)->name('admin.bookings');
+    Route::get('/customers', AdminCustomersPage::class)->name('admin.customers');
 
+});
 //store
 Route::get('/addhotel', AdminAddHotelPage::class)->name('addhotel');
 //edit
