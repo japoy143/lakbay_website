@@ -3,6 +3,9 @@
 namespace App\Livewire\Admin\Components;
 
 use App\Models\Hotels;
+use Illuminate\Support\Facades\Gate;
+
+
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
 use phpDocumentor\Reflection\Types\Boolean;
@@ -22,7 +25,7 @@ class HotelCard extends Component
 
     public function delete(Hotels $hotel)
     {
-
+        Gate::authorize("delete", $hotel);
         $this->dispatch('update-hotels');
         $hotel->delete();
     }

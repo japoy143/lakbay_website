@@ -63,11 +63,12 @@
     {{-- must occupy the remaining space --}}
     <div class=" pt-10  overflow-scroll  flex flex-wrap gap-2  flex-grow  ">
         @foreach ($hotels as $hotel)
-            <livewire:admin.components.hotel-card :$hotel :is_admin="true" wire:key="{{ $hotel->id }}" />
+            @can('view', $hotel)
+                <livewire:admin.components.hotel-card :$hotel :is_admin="true" wire:key="{{ $hotel->id }}" />
+            @endcan
         @endforeach
     </div>
     {{-- allHotelsEnd --}}
 
-    <p>{{ $search }}</p>
 
 </div>

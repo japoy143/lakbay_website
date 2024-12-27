@@ -8,7 +8,9 @@
         <p>{{ Number::currency($hotel->pricing, 'PHP') }}</p>
         <div class="card-actions justify-end">
             @if ($is_admin)
-                <a href="{{ route('edithotel', $hotel->id) }}" class="btn">Edit</a>
+                @can('update', $hotel)
+                    <a href="{{ route('edithotel', $hotel->id) }}" class="btn">Edit</a>
+                @endcan
                 <button class="btn" wire:click="delete({{ $hotel->id }})">Delete</button>
             @else
                 <a href="{{ route('bookhotel', $hotel->id) }}" wire:navigate class="btn bg-primary text-white">Book</a>

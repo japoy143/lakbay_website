@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Customer;
 use App\Models\User;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class RegisterPage extends Component
@@ -44,10 +45,8 @@ class RegisterPage extends Component
 
         $this->alert('success', 'Successfully Created Account');
 
-
-
-
     }
+
 
     public function render()
     {

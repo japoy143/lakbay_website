@@ -34,6 +34,7 @@ class AdminRegister extends Component
         if (empty($user)) {
             $this->alert('error', 'Please Create account first before creating admin account');
 
+
             return redirect(route('register'));
         }
 

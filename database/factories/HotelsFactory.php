@@ -18,6 +18,7 @@ class HotelsFactory extends Factory
     public function definition(): array
     {
         return [
+            'hotel_owner_id' => 2,
             'hotel_name' => fake()->name(),
             'location' => fake()->streetName(),
             'pricing' => fake()->numberBetween(200, 100000),
