@@ -52,10 +52,12 @@ class BookHotelPage extends Component
         ]);
 
         $attributes['hotels_id'] = $this->hotel->id;
-        $attributes['customer_id'] = Auth::user()->customer->id;
+
 
         //book customer
         Booking::create($attributes);
+
+
 
         $this->alert('success', 'Successfully Book Hotel');
 

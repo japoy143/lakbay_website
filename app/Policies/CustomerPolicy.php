@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\Customer;
+use App\Models\Hotels;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
@@ -22,6 +23,7 @@ class CustomerPolicy
     public function view(User $user, Customer $customer): bool
     {
         return false;
+
     }
 
     /**

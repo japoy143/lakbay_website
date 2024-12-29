@@ -51,14 +51,6 @@
                 </li>
 
 
-                <li>
-                    <a href="{{ route('admin.customers') }}" class="flex flex-row gap-2" wire:navigate>
-                        <img src="{{ Vite::asset('resources/svgs/customer.svg') }}" alt="customers"
-                            class=" h-[24px] w-[24px] ">
-                        <p>Customers </p>
-                    </a>
-                </li>
-
 
 
                 <livewire:admin.auth.logout />

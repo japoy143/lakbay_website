@@ -21,7 +21,7 @@ class BookingPolicy
      */
     public function view(User $user, Booking $booking): bool
     {
-        return false;
+        return $user->hotel_owner->id === $booking->hotels->hotel_owner_id;
     }
 
     /**
@@ -37,7 +37,7 @@ class BookingPolicy
      */
     public function update(User $user, Booking $booking): bool
     {
-        return false;
+        return $user->hotel_owner->id === $booking->hotels->hotel_owner_id;
     }
 
     /**
@@ -45,7 +45,7 @@ class BookingPolicy
      */
     public function delete(User $user, Booking $booking): bool
     {
-        return false;
+        return $user->hotel_owner->id === $booking->hotels->hotel_owner_id;
     }
 
     /**
@@ -61,6 +61,6 @@ class BookingPolicy
      */
     public function forceDelete(User $user, Booking $booking): bool
     {
-        return false;
+        return $user->hotel_owner->id === $booking->hotels->hotel_owner_id;
     }
 }

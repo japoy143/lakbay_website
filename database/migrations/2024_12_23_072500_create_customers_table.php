@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Booking;
+use App\Models\Hotels;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,6 +17,7 @@ return new class extends Migration {
             $table->id();
             $table->timestamps();
             $table->foreignIdFor(User::class);
+            $table->foreignIdFor(Booking::class);
             $table->string('name');
             $table->string('email');
             $table->integer('phone_number');

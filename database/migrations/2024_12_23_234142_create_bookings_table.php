@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Customer;
+
 use App\Models\Hotels;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,8 +15,6 @@ return new class extends Migration {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Hotels::class);
-            $table->foreignIdFor(Customer::class);
-            $table->timestamps();
             $table->date('checkin_date')->nullable();
             $table->date('checkout_date')->nullable();
             $table->string('customer_name');
@@ -25,6 +23,7 @@ return new class extends Migration {
             $table->string('payment_method');
             $table->integer('days')->default(1);
             $table->integer('total_payment');
+            $table->timestamps();
 
         });
     }

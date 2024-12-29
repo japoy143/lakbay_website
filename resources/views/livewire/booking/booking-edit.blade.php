@@ -18,7 +18,7 @@
 
     {{-- Customer Details  and Payment Method --}}
     <div class=" col-span-2 ">
-        <form wire:submit="placebooking" class="space-y-8">
+        <form wire:submit="editBooking({{ $booking_id }})" class="space-y-8">
 
             {{-- Customer Name --}}
             <div class="max-w-sm">
@@ -58,8 +58,8 @@
                 {{-- Total Guest --}}
                 <div class="max-w-sm">
                     <label for="input-label" class="block text-sm font-medium mb-2 dark:text-white">Total Number Of
-                        Guests</label>
-                    <input type="number" wire:model.live="guests" id="input-label"
+                        Dayss</label>
+                    <input type="number" wire:model.live="days" id="input-label"
                         class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                         placeholder="Enter Number of Guests">
                     @error('guests')
@@ -129,7 +129,7 @@
             </div>
 
 
-            <button class=" btn w-full bg-primary text-white" type="submit">Place Booking</button>
+            <button type="submit" class=" btn w-full bg-primary text-white" type="submit">Edit Booking</button>
         </form>
     </div>
 

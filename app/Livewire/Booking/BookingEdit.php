@@ -11,6 +11,8 @@ class BookingEdit extends Component
 
     public Hotels $hotel;
 
+    public $booking_id;
+
     public $customer_name;
 
 
@@ -21,7 +23,7 @@ class BookingEdit extends Component
     public $payment_method;
 
 
-    public $guests;
+    public $days;
 
     public $total_payment;
 
@@ -36,12 +38,18 @@ class BookingEdit extends Component
         $this->location = $booking->location;
         $this->phone_number = $booking->phone_number;
         $this->payment_method = $booking->payment_method;
-        $this->guests = $booking->guests;
+        $this->days = $booking->days;
         $this->total_payment = $booking->total_payment;
         $this->checkin_date = $booking->checkin_date;
-        $this->checkout_date = $booking->checkout_date; 
+        $this->checkout_date = $booking->checkout_date;
+        $this->booking_id = $booking->id;
     }
 
+    public function editBooking(Booking $booking)
+    {
+        $booking->update(['checkin_date' => $this->checkin_date, 'checkout_date' => $this->checkout_date, 'customer_name' => $this->customer_name, 'location' => $this->location, 'phone_number' => $this->phone_number, 'payment_method' => $this->payment_method, 'days' => $this->days, 'total_payment' => $this->total_payment]);
+        return redirect(route('admin.bookings'));
+    }
 
     public function render()
     {

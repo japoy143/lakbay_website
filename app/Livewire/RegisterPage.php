@@ -38,10 +38,8 @@ class RegisterPage extends Component
 
 
         //create user account
-        $user = User::create($userDetails);
+        User::create($userDetails);
 
-        //create customer
-        Customer::create(['name' => $user->name, 'user_id' => $user->id, 'email' => $user->email, 'phone_number' => $user->phone_number]);
 
         $this->alert('success', 'Successfully Created Account');
 

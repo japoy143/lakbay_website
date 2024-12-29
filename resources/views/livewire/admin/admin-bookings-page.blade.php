@@ -78,41 +78,47 @@
                             @foreach ($bookings as $key => $booking)
                                 <tr wire:key="{{ $key }}"
                                     class=" {{ $key % 2 == 0 ? 'odd:bg-white' : 'even:bg-gray-100' }}   hover:bg-gray-100 dark:odd:bg-neutral-800 dark:even:bg-neutral-700 dark:hover:bg-neutral-700 ">
-                                    <td
-                                        class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                        {{ $booking->customer_name }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                        {{ $booking->checkin_date->format('F j Y') }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                        {{ $booking->checkout_date->format('F j Y') }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                        {{ $booking->location }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                        {{ $booking->phone_number }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                        {{ $booking->days }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                        {{ $booking->payment_method }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                        {{ $booking->total_payment }}</td>
-
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-
-                                        <img src="{{ Vite::asset('resources/svgs/ellipses.svg') }}"
-                                            class="h-[24px] w-[24px] cursor-pointer" onclick="showOptions(event)" />
-
-                                        <div id="options-{{ $key }}"
-                                            class="hidden absolute z-10 mt-2 bg-white border border-gray-200 rounded-md shadow-md  right-10">
-                                            <!-- Options content here -->
-                                            <a href="{{ route('edit-booking', $booking->id) }}" wire:navigate
-                                                class="block px-4 py-2 text-sm  text-orange-400">Edit</a>
-                                            <button wire:click="deleteBooking({{ $booking->id }})"
-                                                class="block px-4 py-2 text-sm text-red-500 ">Delete
-                                            </button>
-                                        </div>
-                                    </td>
 
 
+                                    @can('view', $booking)
+                                        <td
+                                            class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
+                                            {{ $booking->customer_name }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                            {{ $booking->checkin_date->format('F j Y') }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                            {{ $booking->checkout_date->format('F j Y') }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                            {{ $booking->location }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                            {{ $booking->phone_number }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                            {{ $booking->days }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                            {{ $booking->payment_method }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                            {{ $booking->total_payment }}</td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+
+                                            <img src="{{ Vite::asset('resources/svgs/ellipses.svg') }}"
+                                                class="h-[24px] w-[24px] cursor-pointer" onclick="showOptions(event)" />
+
+                                            <div id="options-{{ $key }}"
+                                                class="hidden absolute z-10 mt-2 bg-white border border-gray-200 rounded-md shadow-md  right-10">
+                                                <!-- Options content here -->
+                                                @can('update', $booking)
+                                                    <a href="{{ route('edit-booking', $booking->id) }}" wire:navigate
+                                                        class="block px-4 py-2 text-sm  text-orange-400">Edit</a>
+                                                @endcan
+                                                @can('delete', $booking)
+                                                    <button wire:click="deleteBooking({{ $booking->id }})"
+                                                        class="block px-4 py-2 text-sm text-red-500 ">Delete
+                                                    </button>
+                                                @endcan
+                                            </div>
+                                        </td>
+                                    @endcan
                                 </tr>
                             @endforeach
                         </tbody>

@@ -24,7 +24,7 @@ class AdminRegister extends Component
     public function createAccount()
     {
         $attributes = $this->validate([
-            'email' => 'required|email|max:255',
+            'email' => 'required|email|max:255|unique:hotel_owners,email',
             'password' => 'required|confirmed|max:255',
         ]);
 
@@ -37,6 +37,7 @@ class AdminRegister extends Component
 
             return redirect(route('register'));
         }
+
 
         HotelOwner::create(['user_id' => $user->id, 'email' => $this->email, 'password' => $this->password]);
 
