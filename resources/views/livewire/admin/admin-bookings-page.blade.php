@@ -69,6 +69,12 @@
                                     Total Payment</th>
                                 <th scope="col"
                                     class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">
+                                    Paid</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">
+                                    Balance</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">
                                     Action</th>
 
                             </tr>
@@ -99,6 +105,15 @@
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
                                             {{ $booking->total_payment }}</td>
 
+
+                                        <td
+                                            class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200 flex flex-row">
+                                            {{ $booking->is_paid ? 'Paid' : 'Not Paid' }}
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                            {{ $booking->is_paid ? 0 : $booking->balance }}</td>
+
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
 
                                             <img src="{{ Vite::asset('resources/svgs/ellipses.svg') }}"
@@ -108,6 +123,10 @@
                                                 class="hidden absolute z-10 mt-2 bg-white border border-gray-200 rounded-md shadow-md  right-10">
                                                 <!-- Options content here -->
                                                 @can('update', $booking)
+                                                    <button wire:click="paid({{ $booking->id }})"
+                                                        class="block px-4 py-2 text-sm text-green-500 ">Paid
+                                                    </button>
+
                                                     <a href="{{ route('edit-booking', $booking->id) }}" wire:navigate
                                                         class="block px-4 py-2 text-sm  text-orange-400">Edit</a>
                                                 @endcan

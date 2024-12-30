@@ -52,6 +52,7 @@ class BookHotelPage extends Component
         ]);
 
         $attributes['hotels_id'] = $this->hotel->id;
+        $attributes['balance'] = $this->total_payment;
 
 
         //book customer

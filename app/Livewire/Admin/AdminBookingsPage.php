@@ -19,10 +19,10 @@ class AdminBookingsPage extends Component
     }
 
 
-    //edit booking
-    public function editBooking(Booking $booking)
+    //paid
+    public function paid(Booking $booking)
     {
-
+        $booking->update(['is_paid' => true]);
     }
 
 

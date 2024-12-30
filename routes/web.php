@@ -16,6 +16,7 @@ use App\Livewire\Customers\EditCustomer;
 use App\Livewire\Homepage;
 use App\Livewire\LoginPage;
 use App\Livewire\PackagesPage;
+use App\Livewire\ProfilePage;
 use App\Livewire\RegisterPage;
 use Illuminate\Support\Facades\Route;
 
@@ -23,18 +24,18 @@ Route::get('/', Homepage::class)->name('home');
 Route::get('/packages', PackagesPage::class)->name('packages');
 Route::get('/contact', ContactPage::class)->name('contact');
 Route::get('/about', AboutPage::class)->name('about');
-//naming done
+
+Route::get('/profile', ProfilePage::class)->name('profile_page');
 
 
 //login
 Route::get('/login', LoginPage::class)->name('login');
 Route::get('/register', RegisterPage::class)->name('register');
-//naming done
+
 
 //admin auth
 Route::get('/admin/register', AdminRegister::class)->name('admin.register');
 Route::get('/admin/login', AdminLogin::class)->name('admin.login');
-//naming done
 
 
 //admin
@@ -43,7 +44,7 @@ Route::middleware(['is_hotel_owner'])->group(function () {
     Route::get('/hotels', AdminHotelsPage::class)->name('admin.hotels');
     Route::get('/bookings', AdminBookingsPage::class)->name('admin.bookings');
 });
-//naming done
+
 
 //store
 Route::get('/addhotel', AdminAddHotelPage::class)->name('addhotel');
