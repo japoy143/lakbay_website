@@ -25,7 +25,7 @@ Route::get('/packages', PackagesPage::class)->name('packages');
 Route::get('/contact', ContactPage::class)->name('contact');
 Route::get('/about', AboutPage::class)->name('about');
 
-Route::get('/profile', ProfilePage::class)->name('profile_page');
+Route::get('/profile', ProfilePage::class)->name('profile.page');
 
 
 //login
