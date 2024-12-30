@@ -20,8 +20,9 @@ class AdminBookingsPage extends Component
 
 
     //edit booking
-    public function editBooking(Booking $booking){
-        
+    public function editBooking(Booking $booking)
+    {
+
     }
 
 
@@ -40,6 +41,7 @@ class AdminBookingsPage extends Component
         $bookings = $bookings->get();
 
         return view('livewire.admin.admin-bookings-page', ['bookings' => $bookings])
-            ->layout('components/layouts/admin');
+            ->layout('components/layouts/admin')
+            ->title('Admin Bookings');
     }
 }

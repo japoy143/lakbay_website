@@ -48,6 +48,7 @@ class RegisterPage extends Component
 
     public function render()
     {
-        return view('livewire.register-page');
+        return view('livewire.register-page')
+            ->title('Register User');
     }
 }

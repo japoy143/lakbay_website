@@ -11,4 +11,6 @@ interface View extends Renderable
     public function section();
     public function layoutData();
     public function layout($viewName);
+
+    public function title($titleName);
 }

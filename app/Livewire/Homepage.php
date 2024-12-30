@@ -35,6 +35,7 @@ class Homepage extends Component
         //get all the queries
         $hotels = $hotels->get();
 
-        return view('livewire.homepage', ['hotels' => $hotels]);
+        return view('livewire.homepage', ['hotels' => $hotels])
+            ->title('Homepage');
     }
 }

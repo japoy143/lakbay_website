@@ -41,15 +41,17 @@ class AdminLogin extends Component
             request()->session()->regenerate();
 
             return redirect(route('admin.dashboard'));
+        } else {
+            $this->alert('warning', 'Invalid Credentials');
         }
 
-        $this->alert('success', 'Successfully Login');
 
     }
 
     public function render()
     {
         return view('livewire.admin.auth.admin-login')
-            ->layout('components/layouts/admin_auth');
+            ->layout('components/layouts/admin_auth')
+            ->title('Login Admin');
     }
 }

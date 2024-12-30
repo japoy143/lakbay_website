@@ -45,6 +45,7 @@ class AdminAddHotelPage extends Component
     public function render()
     {
         return view('livewire.admin.admin-add-hotel-page')
-            ->layout('components/layouts/admin');
+            ->layout('components/layouts/admin')
+            ->title('Add Hotel Page');
     }
 }

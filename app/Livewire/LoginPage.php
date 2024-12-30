@@ -48,6 +48,7 @@ class LoginPage extends Component
 
     public function render()
     {
-        return view('livewire.login-page');
+        return view('livewire.login-page')
+            ->title('Login User');
     }
 }

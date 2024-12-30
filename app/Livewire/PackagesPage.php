@@ -8,6 +8,7 @@ class PackagesPage extends Component
 {
     public function render()
     {
-        return view('livewire.packages-page');
+        return view('livewire.packages-page')
+            ->title('Package Deals');
     }
 }

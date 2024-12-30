@@ -53,6 +53,7 @@ class EditHotelpage extends Component
     public function render()
     {
         return view('livewire.admin.hotel.edit-hotelpage')
-            ->layout('components/layouts/admin');
+            ->layout('components/layouts/admin')
+            ->title('Edit Hotel Page');
     }
 }

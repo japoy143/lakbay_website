@@ -10,10 +10,14 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     @livewireStyles
+
+
 </head>
 
 <body class=" font-primary ">
     @livewireScripts
+
+
 
     {{-- sweetalert --}}
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

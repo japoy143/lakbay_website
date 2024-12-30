@@ -8,13 +8,7 @@ use App\Livewire\Admin\AdminDashboardPage;
 use App\Livewire\Admin\AdminHotelsPage;
 use App\Livewire\Admin\Auth\AdminLogin;
 use App\Livewire\Admin\Auth\AdminRegister;
-use App\Livewire\Admin\Auth\Login;
-use App\Livewire\Admin\Auth\Register;
-use App\Livewire\Admin\BookingsPage;
-use App\Livewire\Admin\CustomersPage;
-use App\Livewire\Admin\Dashboardpage;
 use App\Livewire\Admin\Hotel\EditHotelpage;
-use App\Livewire\Admin\HotelsPage;
 use App\Livewire\Booking\BookingEdit;
 use App\Livewire\ContactPage;
 use App\Livewire\Customers\BookHotelPage;
@@ -29,23 +23,28 @@ Route::get('/', Homepage::class)->name('home');
 Route::get('/packages', PackagesPage::class)->name('packages');
 Route::get('/contact', ContactPage::class)->name('contact');
 Route::get('/about', AboutPage::class)->name('about');
+//naming done
+
 
 //login
 Route::get('/login', LoginPage::class)->name('login');
 Route::get('/register', RegisterPage::class)->name('register');
-
+//naming done
 
 //admin auth
 Route::get('/admin/register', AdminRegister::class)->name('admin.register');
 Route::get('/admin/login', AdminLogin::class)->name('admin.login');
+//naming done
+
+
 //admin
 Route::middleware(['is_hotel_owner'])->group(function () {
     Route::get('/admin', AdminDashboardPage::class)->name('admin.dashboard');
     Route::get('/hotels', AdminHotelsPage::class)->name('admin.hotels');
     Route::get('/bookings', AdminBookingsPage::class)->name('admin.bookings');
-    Route::get('/customers', AdminCustomersPage::class)->name('admin.customers');
-
 });
+//naming done
+
 //store
 Route::get('/addhotel', AdminAddHotelPage::class)->name('addhotel');
 //edit

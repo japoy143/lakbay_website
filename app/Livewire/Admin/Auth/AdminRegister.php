@@ -51,6 +51,7 @@ class AdminRegister extends Component
     public function render()
     {
         return view('livewire.admin.auth.admin-register')
-            ->layout('components/layouts/admin_auth');
+            ->layout('components/layouts/admin_auth')
+            ->title('Register Admin');
     }
 }
